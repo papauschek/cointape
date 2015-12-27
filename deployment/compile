@@ -1,0 +1,5 @@
+#!/bin/bash
+# configures and compiles project
+
+# compile play
+sbt stage

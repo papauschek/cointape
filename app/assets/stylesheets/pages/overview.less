@@ -1,0 +1,161 @@
+
+#overview {
+
+  .faqs {
+    margin-top: 50px;
+  }
+
+  h2 {
+    margin-top: 40px;
+    font-size: 18px;
+  }
+
+  .header {
+    img {
+      display: block;
+      float: left;
+      margin: 10px 0 15px 0;
+    }
+    .info {
+      float: left;
+      margin: 29px 15px;
+      text-transform: uppercase;
+      color: gray;
+    }
+  }
+
+  .footer {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  table {
+
+    thead {
+
+      td {
+        padding-bottom: 0;
+      }
+
+      font-weight: bold;
+      color: #666666;
+
+      .mem {
+        color: #18A801;
+      }
+
+      .day {
+        color: #4E607C;
+      }
+
+      .subhead {
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: normal;
+        color: #aaaaaa;
+        td {
+          padding-top: 0;
+          padding-bottom: 4px;
+        }
+        white-space: nowrap;
+      }
+
+    }
+
+    td {
+      border-top: inherit;
+    }
+
+    tbody {
+      td {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    td.labelcol {
+      padding: 10px 10px 0 0;
+      text-align: right;
+      span.min {
+        color: #aaaaaa;
+      }
+    }
+
+    td.bucket {
+      width: 60px;
+    }
+
+    td.count {
+
+      .progress {
+        background-color: inherit;
+        box-shadow: inherit;
+        -webkit-box-shadow: inherit;
+        border-radius: inherit;
+        margin-bottom: 0;
+
+        .progress-bar {
+          box-shadow: inherit;
+          -webkit-box-shadow: inherit;
+        }
+      }
+
+
+      .progress.day {
+        .progress-bar {
+          background-color: #4E607C;
+          border-bottom: 1px solid lighten(#4E607C, 20%);
+        }
+      }
+
+    }
+
+    td.delay {
+      width: 60px;
+      font-weight: bold;
+    }
+
+    tr.speed0 {
+      &:hover {
+        background-color: lighten(#D46B04, 50%);
+      }
+      td.delay {
+        color: #D46B04;
+      }
+      .progress.mem .progress-bar {
+        background-color: #D46B04;
+        border-top: 1px solid lighten(#D46B04, 20%);
+      }
+    }
+
+    tr.speed1 {
+      &:hover {
+        background-color: lighten(#A69100, 50%);
+      }
+      td.delay {
+        color: #A69100;
+      }
+      .progress.mem .progress-bar {
+        background-color: #A69100;
+        border-top: 1px solid lighten(#A69100, 20%);
+      }
+    }
+
+    tr.speed2 {
+      &:hover{
+        background-color: lighten(#18A801, 50%);
+      }
+      td.delay {
+        color: #18A801;
+      }
+      .progress.mem .progress-bar {
+        background-color: #18A801;
+        border-top: 1px solid lighten(#18A801, 20%);
+      }
+    }
+
+
+  }
+
+
+}

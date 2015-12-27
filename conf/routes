@@ -1,0 +1,22 @@
+
+# WEB FRONTEND
+GET        /                           controllers.web.AppController.index(page = "")
+GET        /api                        controllers.web.AppController.index(page = "api")
+
+# WEB BACKEND
+GET        /fees                       controllers.web.AppController.fees
+
+# API
+GET        /v1/fees/recommended        controllers.web.ApiController.recommendedFee
+GET        /v1/fees/list               controllers.web.ApiController.listFees
+
+# TESTING
+GET        /test-status                controllers.web.AppController.testStatus
+GET        /transaction/:hash          controllers.web.AppController.testTransaction(hash: String)
+
+# FILES
+GET        /versioned/*file            controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file               controllers.Assets.at(path="/public", file: String)
+
+
+GET        /*any                       controllers.web.AppController.notFound(any: String)
