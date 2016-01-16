@@ -1,8 +1,10 @@
 #!/bin/bash
 # transfer binaries to local instance, restart the service
-
 set -e
+
 rsync -avz --delete --exclude 'logs' --exclude 'RUNNING_PID' target/universal/stage/ /var/cointape
 sudo chown -R cointape /var/cointape
+
+cp -f deployment/upstart-cointape.conf /etc/init/cointape.conf
 stop cointape
 start cointape

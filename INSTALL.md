@@ -57,7 +57,7 @@ sudo apt-get update
 sudo apt-get install postgresql
 ``` 
 
-- Configure:
+- Configure cointape user (will only have local access, so password does not matter):
 ```
 sudo -u postgres psql <<EOT
 CREATE USER cointape WITH PASSWORD 'cointape';
@@ -76,3 +76,20 @@ sudo adduser cointape --disabled-login
 cd cointape
 sudo deployment/auto-deploy
 ```
+
+- CoinTape now starts automatically. Updates can be done by running `sudo deployment/auto-deploy` again. This will download the new sources, build, deploy and restart the server.
+
+
+## Configure domain and reverse proxy
+
+### Install nginx
+
+```
+sudo apt-get install nginx
+sudo cp deployment/nginx.conf /etc/nginx/sites-enabled/cointape
+```
+- Configure domains in /etc/nginx/sites-enabled/cointape as needed. Then reload nginx:
+```
+sudo /etc/init.d/nginx reload
+```
+- CoinTape should now be accessible from a browser.

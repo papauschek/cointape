@@ -2,5 +2,4 @@
 # configures and compiles project
 
 cp -f conf/application.secret.conf conf/application.conf
-cp -f deployment/upstart-cointape.conf /etc/init/cointape.conf
 sbt stage
