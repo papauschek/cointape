@@ -1,5 +1,6 @@
 #!/bin/bash
 # update sources from git repository
 
+set -e
 git fetch --all
 git reset --hard origin/master

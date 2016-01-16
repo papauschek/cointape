@@ -20,9 +20,9 @@ rpcpassword=testpassword
 - run `sudo start bitcoind` to start it the first time
 
 
-## Build CoinTape from source
+## Install CoinTape build requirements
 
-### Install Git and SBT
+### Install Java 8 and SBT
 
 ```
 sudo add-apt-repository ppa:webupd8team/java
@@ -33,6 +33,13 @@ sudo apt-get install sbt
 sudo apt-get install oracle-java8-installer
 ```
 
+### Install Node
+	
+```
+sudo apt-get install nodejs
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
+
 ### Clone CoinTape Git Repository
 
 ``` 
@@ -41,18 +48,14 @@ cd /root
 git clone https://github.com/papauschek/cointape
 ``` 
 
-### Install Node
-	
-```
-sudo apt-get install nodejs
-sudo ln -s /usr/bin/nodejs /usr/bin/node
-```
 
 
-## Automated Build and Local Deployment
+## Automated CoinTape Build and Local Deployment
+
+- Generate a secret application config (not part of the repository): Copy `conf/application.conf` to `conf/application.secret.conf` and set the Bitcoin Core password to the secret password generated earlier.
 
 ```
+sudo adduser cointape --disabled-login
 cd cointape
-deployment/compile
-deployment/deploy-local
+sudo deployment/auto-deploy
 ```

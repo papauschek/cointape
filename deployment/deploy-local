@@ -1,5 +1,8 @@
 #!/bin/bash
 # transfer binaries to local instance, restart the service
 
-cp -f conf/application.secret.conf conf/application.conf
-sbt stage
+set -e
+rsync -avz --delete --exclude 'logs' --exclude 'RUNNING_PID' target/universal/stage /var/cointape
+sudo chown -R cointape /var/cointape
+stop cointape
+start cointape

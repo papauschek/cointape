@@ -1,6 +1,7 @@
 #!/bin/bash
 # update source, configure, compile and deploy
 
+set -e
 ./deployment/update
 ./deployment/compile
 ./deployment/deploy-local
