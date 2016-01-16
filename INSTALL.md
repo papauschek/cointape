@@ -48,6 +48,23 @@ cd /root
 git clone https://github.com/papauschek/cointape
 ``` 
 
+### Install PostgreSQL 
+
+``` 
+sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >sudo /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install postgresql
+``` 
+
+- Configure:
+```
+sudo -u postgres psql <<EOT
+CREATE USER cointape WITH PASSWORD 'cointape';
+CREATE DATABASE "cointape" WITH OWNER "cointape" ENCODING 'UTF8';
+EOT
+```
+
 
 
 ## Automated CoinTape Build and Local Deployment
