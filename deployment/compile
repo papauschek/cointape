@@ -1,5 +1,6 @@
 #!/bin/bash
 # configures and compiles project
 
-# compile play
+cp -f conf/application.secret.conf conf/application.conf
+cp -f deployment/upstart-cointape.conf /etc/init/cointape.conf
 sbt stage

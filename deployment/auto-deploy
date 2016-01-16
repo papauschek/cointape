@@ -1,0 +1,6 @@
+#!/bin/bash
+# update source, configure, compile and deploy
+
+./deployment/update
+./deployment/compile
+./deployment/deploy-local

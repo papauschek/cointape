@@ -1,0 +1,5 @@
+#!/bin/bash
+# transfer binaries to local instance, restart the service
+
+cp -f conf/application.secret.conf conf/application.conf
+sbt stage
