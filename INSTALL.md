@@ -40,14 +40,6 @@ sudo apt-get install nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-### Clone CoinTape Git Repository
-
-``` 
-sudo apt-get install git
-cd /root
-git clone https://github.com/papauschek/cointape
-``` 
-
 ### Install PostgreSQL 
 
 ``` 
@@ -66,23 +58,33 @@ EOT
 ```
 
 
-
 ## Automated CoinTape Build and Local Deployment
+
+### Clone CoinTape Git Repository
+
+``` 
+sudo apt-get install git
+cd /root
+git clone https://github.com/papauschek/cointape
+``` 
 
 - Generate a secret application config (not part of the repository): Copy `conf/application.conf` to `conf/application.secret.conf` and set the Bitcoin Core password to the secret password generated earlier.
 
+### Build and Deploy CoinTape
 ```
 sudo adduser cointape --disabled-login
 cd cointape
 sudo deployment/auto-deploy
 ```
+- This will take a while if it compiles the first time.
+- CoinTape now starts automatically.
 
-- CoinTape now starts automatically. Updates can be done by running `sudo deployment/auto-deploy` again. This will download the new sources, build, deploy and restart the server.
 
+### Updating CoinTape
 
-## Configure domain and reverse proxy
+Updates can be done by running `sudo deployment/auto-deploy` again. This will download the new sources, build, deploy and restart the server.
 
-### Install nginx
+### Serve using nginx
 
 ```
 sudo apt-get install nginx
