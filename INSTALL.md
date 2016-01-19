@@ -10,10 +10,9 @@ adduser bitcoin --disabled-login
 
 - Set password in bitcoin configuration file /home/bitcoin/.bitcoin/bitcoin.conf
 ```
-rpcuser=bitcoinrpc
 rpcpassword=testpassword
 ```
-(replace "testpassword" with random password)
+(replace "testpassword" with random password, do not set the rpcuser - CoinTape expects it to be empty)
 
 - Copy deployment/upstart-bitcoind-conf to /etc/init/bitcoind.conf
 - Bitcoin core will now run automatically on system start.

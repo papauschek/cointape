@@ -8,7 +8,7 @@ import play.api.libs.json._
 import play.api.libs.ws.WSAuthScheme
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.util.Random
+import scala.util.{Try, Random}
 
 case class BlockchainApiTx(hash: String, size: Int, absFee: Long, createDate: DateTime) {
 
@@ -124,11 +124,17 @@ object CoreApi {
 
     CoreApiCalls.run {
       _ =>
-        //println(method + params)
         val future = WS.client.url(coreHost).withAuth("", coreSecret, WSAuthScheme.BASIC).
           post(Json.obj("method" -> method, "params" -> params, "id" -> Random.nextInt())).map {
           response =>
-            (response.json \ "result").asOpt[JsValue].getOrElse {
+
+            // try to parse json
+            val json = Try(response.json).getOrElse{
+              throw new IllegalArgumentException(response.body)
+            }
+
+            // try to parse json result
+            (json \ "result").asOpt[JsValue].getOrElse {
               throw new IllegalArgumentException(response.body)
             }
         }
