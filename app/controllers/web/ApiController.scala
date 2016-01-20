@@ -10,6 +10,23 @@ import play.api.mvc.{Result, Request, Action, Controller}
 
 object ApiController extends Controller {
 
+  /** rate limiting and access check for all api requests */
+  def handleApiRequest(key: String)(implicit request: Request[_]): Option[Result] = {
+
+    val addresses = request.headers.get("X-Forwarded-For").getOrElse("127.0.0.1")
+    val ipAddress = addresses.split(", ").head
+
+    if (//Play.current.mode == Mode.Prod &&
+      !request.host.startsWith("api") && // api.cointape.com (deprecated API endpoint)
+      !request.uri.startsWith("/api")) { // new api endpoint (/api/...)
+      Some(NotFound("Not found"))
+    } else if (!AccessCache.canAccess(key, ipAddress)) {
+      Some(TooManyRequest("Reached limit of 5000 requests per hour."))
+    } else {
+      None
+    }
+  }
+
   def recommendedFee = Action {
     implicit request =>
       import play.api.Play.current
@@ -31,21 +48,6 @@ object ApiController extends Controller {
       "hourFee" -> summary.hourFee
     ))
   }
-
-  def handleApiRequest(key: String)(implicit request: Request[_]): Option[Result] = {
-
-    val addresses = request.headers.get("X-Forwarded-For").getOrElse("127.0.0.1")
-    val ipAddress = addresses.split(", ").head
-
-    if (Play.current.mode == Mode.Prod && !request.host.startsWith("api")) {
-      Some(NotFound("Not found"))
-    } else if (!AccessCache.canAccess(key, ipAddress)) {
-      Some(TooManyRequest("Reached limit of 5000 requests per hour."))
-    } else {
-      None
-    }
-  }
-
 
   def listFees = Action {
     implicit request =>

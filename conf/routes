@@ -6,7 +6,11 @@ GET        /api                        controllers.web.AppController.index(page 
 # WEB BACKEND
 GET        /fees                       controllers.web.AppController.fees
 
-# API
+# API (current)
+GET        /api/v1/fees/recommended    controllers.web.ApiController.recommendedFee
+GET        /api/v1/fees/list           controllers.web.ApiController.listFees
+
+# API (deprecated, old api.cointape.com domain)
 GET        /v1/fees/recommended        controllers.web.ApiController.recommendedFee
 GET        /v1/fees/list               controllers.web.ApiController.listFees
 

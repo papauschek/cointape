@@ -21,7 +21,7 @@ define(['app/libs'], function(libs) {
            return  (<div>
                <div className="header">
                    <Link to="/">
-                       <img alt="CoinTape.com" src="/assets/images/cointape_logo.png" />
+                       <img alt="CoinTape.21.co" src="/assets/images/cointape_logo.png" />
                    </Link>
                    <div className="info">
                        Predicting Bitcoin transaction fees since 1759.
@@ -211,7 +211,7 @@ define(['app/libs'], function(libs) {
                     </div>
 
                     <h2>I have some feedback for you!</h2>
-                    <p>Sure, drop me a line here: <a href="mailto:chris@cointape.com">chris@cointape.com</a></p>
+                    <p>Sure, drop us a line any time.</p>
                 </div>
 
                 <Footer />
@@ -238,7 +238,7 @@ define(['app/libs'], function(libs) {
 
 
                     <h2>Recommended Transaction Fees</h2>
-                    <a href="http://api.cointape.com/v1/fees/recommended">http://api.cointape.com/v1<strong>/fees/recommended</strong></a>
+                    <a href="http://cointape.21.co/api/v1/fees/recommended">http://cointape.21.co/api/v1<strong>/fees/recommended</strong></a>
                     <p>
                         Example response:
                         <pre>{'{ "fastestFee": 40, "halfHourFee": 20, "hourFee": 10 }'}</pre>
@@ -248,7 +248,7 @@ define(['app/libs'], function(libs) {
                     </p>
 
                     <h2>Transaction Fees Summary</h2>
-                    <a href="http://api.cointape.com/v1/fees/list">http://api.cointape.com/v1<strong>/fees/list</strong></a>
+                    <a href="http://cointape.21.co/api/v1/fees/list">http://cointape.21.co/api/v1<strong>/fees/list</strong></a>
                     <p>
                         Example response:
                         <pre>{'{ "fees": [ \r\n  {"minFee":0,"maxFee":0,"dayCount":545,"memCount":87,\r\n  "minDelay":4,"maxDelay":32,"minMinutes":20,"maxMinutes":420},\r\n...\r\n ] }'}</pre>
