@@ -28,6 +28,7 @@ CoinTape analyses Blockchain transaction fees and displays current and predicted
 - run `sbt stage`. This creates an executable bundle in `target\universal\stage`, which can be run on any system with JDK 7+. See an example upstart script for Debian-based systems in `deployment/upstart.conf`, which uses `/var/www/cointape` as its deployment path.
 - CoinTape runs its own webserver on port 9000 by default. Use a reverse proxy to host on a domain, see example nginx webserver config in  `deployment/nginx.conf`.
 
+
 ## Messages
 
 Common log messages and their meaning.
